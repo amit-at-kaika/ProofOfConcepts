@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "Resources"
+		},
+		{
+			"path": "ProofOfConcepts.Common.DataContext.Pomelo"
 		}
 	]
 }
