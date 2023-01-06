@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "ProofOfConcepts.Common.EntityModels.MySql"
+		},
+		{
+			"path": "ProofOfConcepts.Common.EntityModels.Pomelo"
+		},
+		{
+			"path": "Resources"
+		}
+	]
+}
