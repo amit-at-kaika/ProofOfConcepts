@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace ProofOfConcept.Shared;
+namespace ProofOfConcepts.Shared;
 
 public partial class SakilaContext : DbContext
 {

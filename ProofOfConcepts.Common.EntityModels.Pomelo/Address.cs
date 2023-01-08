@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace ProofOfConcept.Shared;
+namespace ProofOfConcepts.Shared;
 
 [Table("address")]
 [Index("CityId", Name = "idx_fk_city_id")]

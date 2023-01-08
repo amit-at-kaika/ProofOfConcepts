@@ -1,4 +1,4 @@
-using ProofOfConcept.Shared;
+using ProofOfConcepts.Shared;
 
 namespace ProofOfConcepts.Common.UnitTests.Pomelo;
 
