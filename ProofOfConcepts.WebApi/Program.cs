@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Formatters; // IOutputFormatter, OutputFormatter
+using ProofOfConcepts.WebApi.Repositories; // IActorRepository, ActorRepository
 using ProofOfConcepts.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSakilaContext();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<IActorRepository, ActorRepository>(); 
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
