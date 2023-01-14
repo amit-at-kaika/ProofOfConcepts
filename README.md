@@ -12,3 +12,4 @@ A test .NET 7 project to create a WebAPI with MySql.
 ## Note
 - This is based on the ideas introduced in https://github.com/markjprice/cs11dotn
 - The videos of https://github.com/mohamadlawand087 
+- The connection string is hardcoded in the *appsettings.Development.json*
