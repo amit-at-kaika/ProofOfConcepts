@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "ProofOfConcepts.SecretManager"
+		},
+		{
+			"path": "ProofOfConcepts.SecretManager.UnitTests"
 		}
 	]
 }
