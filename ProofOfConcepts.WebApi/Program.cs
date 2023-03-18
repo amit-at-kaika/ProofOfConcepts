@@ -3,6 +3,9 @@ using ProofOfConcepts.WebApi.Repositories; // IActorRepository, ActorRepository
 using Microsoft.AspNetCore.HttpLogging; // HttpLoggingFields
 using ProofOfConcepts.Shared;
 using Microsoft.EntityFrameworkCore; //UseMySql method
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +30,26 @@ builder.Services.AddHttpLogging(options =>
     options.RequestBodyLogLimit = 4096; // default is 32k
     options.ResponseBodyLogLimit = 4096; // default is 32k
 });
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(jwt =>
+{
+    var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtConfig:Secret"]!); // TODO: to be removed when Secrets are to be stored in a vault
+    jwt.SaveToken = true;
+    jwt.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = false, // TODO:for development purposes
+        ValidateAudience = false, // TODO:for development purposes
+        RequireExpirationTime = false, // TODO:for development purposes - to be removed when refresh token functionality is added 
+        ValidateLifetime = true
+    };
+});
+
 
 var app = builder.Build();
 
@@ -40,6 +63,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpLogging();
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllers();
 
 app.Run();

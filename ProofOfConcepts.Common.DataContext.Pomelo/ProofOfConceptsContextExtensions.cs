@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging; // LogLevel
 namespace ProofOfConcepts.Shared;
 public static class SakilaContextContextExtensions
 {
+    //TODO: Remove this function
     /// <summary>
     /// Adds NorthwindContext to the specified IServiceCollection. Uses the MySql database provider.
     /// </summary>
