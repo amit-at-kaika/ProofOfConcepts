@@ -4,10 +4,12 @@ using Microsoft.Extensions.Configuration;
 public class UnitTestWithSecrets : IClassFixture<BaseTest>
 {
     private readonly IConfiguration _config;
+    private readonly string _connectionString;
 
     public UnitTestWithSecrets(BaseTest baseTest)
     {
         _config = baseTest.Configuration;
+        _connectionString = baseTest.ConnectionString;
     }
 
     [Fact]
@@ -18,5 +20,11 @@ public class UnitTestWithSecrets : IClassFixture<BaseTest>
 
         Assert.Equal(1, keyOneValue);
         Assert.True(keyTwoValue);
+    }
+
+    [Fact]
+    public void TestInitializationOfConfigurationStr()
+    {
+        Assert.Equal("Server=localhost;User ID=User123;Password=pass123;Database=kaika", _connectionString);
     }
 }
