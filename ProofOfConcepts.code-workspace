@@ -23,6 +23,15 @@
 		},
 		{
 			"path": "ProofOfConcepts.SecretManager.UnitTests"
+		},
+		{
+			"path": "ProofOfConcepts.LinqTests"
+		},
+		{
+			"path": "ProofOfConcepts.CSToExcel"
+		},
+		{
+			"path": "ProofOfConcepts.CSToExcel.UnitTests"
 		}
 	]
 }
