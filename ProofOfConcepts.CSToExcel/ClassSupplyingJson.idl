@@ -1,0 +1,31 @@
+// ClassSupplyingJson.idl : IDL source for ClassSupplyingJson project
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(0d83b408-7180-429d-a264-198465b977ab),
+	pointer_default(unique)
+]
+interface IClassSupplyingJson : IUnknown
+{
+	[id(1)] HRESULT Init([in] BSTR filePath, [out, retval] BSTR * pRetVal);
+};
+[
+	uuid(3dbeca59-d494-48c8-8fae-ffb67ec47f41),
+	version(1.0),
+]
+library ClassSupplyingJsonLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(515b29e4-44d0-4cda-bbd2-f723a86496ad)
+	]
+	coclass ClassSupplyingJson
+	{
+		[default] interface IClassSupplyingJson;
+	};
+};
+
+import "shobjidl.idl";
